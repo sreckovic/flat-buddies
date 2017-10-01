@@ -1,3 +1,2 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Project [flatbuddies.co](http://flatbuddies.co). was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-[flatbuddies.co](http://flatbuddies.co).
