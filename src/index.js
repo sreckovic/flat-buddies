@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import HeaderSection from './components/header-section';
-import registerServiceWorker from './registerServiceWorker';
 
+import HeaderSection from './components/header-section';
+import FlatList from './components/flats_list';
+
+import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 class Flatbuddies extends Component {

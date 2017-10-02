@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FlatList = (props) => {
-  <div></div>
+  return <div>#</div>
 }
 
 export default FlatList;
