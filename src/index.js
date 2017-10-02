@@ -11,14 +11,20 @@ class Flatbuddies extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { flats: {} };
+    this.state = {
+      flats: {
+        city: 'Sydney',
+        suburb: 'Ashfield',
+
+      }
+    };
   }
 
   render() {
     return (
       <div className="flat-buddies">
         <HeaderSection />
-        <FlatList />
+        <FlatList flats = { this.state.flats } />
       </div>
     );
   }
