@@ -14,18 +14,29 @@ const FlatDetails = (props) => {
       </ul>
 
       <h4>Room details</h4>
-      Room Type	Private room
-      Bathroom	Shared bathroom
-      Furnishing	Unfurnished
-      Available	Oct 14, 2017
-      Length of Stay	Minimum 2 months
-      Gender	Anyone welcome
+      Room Type
+      Private room
+      Bathroom
+      Shared bathroom
+      Furnishing
+      Unfurnished
+      Available
+      Oct 14, 2017
+      Length of Stay
+      Minimum 2 months
+      Gender
+      Anyone welcome
       <h4>Charges for the room</h4>
-      Weekly rent	$200
-      Bond	4 weeks rent
-      Bills	Not included in rent
-      Internet	Included in rent
-      Parking	On street parking
+      Weekly rent
+      $200
+      Bond
+      4 weeks rent
+      Bills
+      Not included in rent
+      Internet
+      Included in rent
+      Parking
+      On street parking
       <h5>Preferences</h5>
       Relaxed group of guys who are courteous and respectful but like to play music and have a fun energy about the place. The rooms in the house are spacious, the ceilings are nice and high - cool during summer. There is a also great entertaining space in our back sunroom that we all spend a lot of time in.
       <h5>Flatmates</h5>
