@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import HeaderSection from './components/header-section';
+import HeaderSection from './components/header_section';
 import FlatList from './components/flats_list';
 
 import registerServiceWorker from './registerServiceWorker';
@@ -12,11 +12,16 @@ class Flatbuddies extends Component {
     super(props);
 
     this.state = {
-      flats: {
-        city: 'Sydney',
-        suburb: 'Ashfield',
-
-      }
+      flats: [
+        ['city', 'Sydney'],
+        ['suburb','Ashfield'],
+        ['roomtype', 'private room'],
+        ['bathroom', 'shared bathroom'],
+        ['furnishing', 'Unfurnished'],
+        ['available', 'Oct 14, 2017'],
+        ['length_of_stay', '2 months'],
+        ['gender', 'Anyone welcome'],
+      ]
     };
   }
 

@@ -5,8 +5,6 @@ const FlatList = (props) => {
   return (
     <div className="flats-list">
       <Flat flat={props.flats} />
-      <Flat flat={props.flats}  />
-      <Flat flat={props.flats}  />
     </div>
   );
 }
