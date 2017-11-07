@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HeaderSection = (props) => {
+const header = (props) => {
   return (
     <header className="header">
       <h1><a href="">FlatBuddies.co</a></h1>
@@ -9,5 +9,5 @@ const HeaderSection = (props) => {
   )
 }
 
-export default HeaderSection;
+export default header;
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -49,26 +49,24 @@ table {
   border-spacing: 0;
 }
 
+/* General styles */
+.flat-buddies {
+  background-color: #fff;
+  padding: 2rem;
+  margin: 1rem;
+}
+
 body {
   background-color: #f5f5f5;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 1em;
   line-height: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
-  color: #1e1e1e;
-}
-
-h1 {
-  font-weight: 500;
-  font-size: 2em;
-  margin-bottom: 1rem;
-}
-
-h1 a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
   color: #1e1e1e;
 }
 
@@ -80,12 +78,20 @@ a {
   text-decoration: none;
 }
 
-.flat-buddies {
-  background-color: #fff;
-  padding: 2rem;
-  margin: 1rem;
+.header h1 {
+  font-size: 2em;
+  margin-bottom: 1rem;
 }
 
-.flat {
+.header h1 a {
+  color: #1e1e1e;
+}
+
+.header h2 {
+  font-size: 1.1em;
+  margin-bottom: 2rem;
+}
+
+.room {
   margin-bottom: 1rem;
 }
