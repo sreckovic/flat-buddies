@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
-import Rooms from './components/Rooms';
+import Header from '../components/Header';
+import Rooms from '../components/Rooms/Rooms';
 
 class Flat extends Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Room from './Room'
+import Room from './Room/Room'
 
 const rooms = (props) => {
   return (
