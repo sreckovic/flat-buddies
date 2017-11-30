@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
-import Rooms from '../components/Rooms/Rooms';
+import Flats from '../components/Flats/Flats';
 
-import './Flat.css';
+import './App.css';
 
-class Flat extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -18,6 +18,14 @@ class Flat extends Component {
           available: 'Oct 14, 2017',
           length_of_stay: 2,
           gender: 'Anyone welcome'},
+        { city: 'Sydney',
+          suburb: 'Glebe',
+          roomtype: 'shared room',
+          bathroom: 'shared bathroom',
+          furnishing: 'Unfurnished',
+          available: 'Oct 14, 2017',
+          length_of_stay: 2,
+          gender: 'Anyone welcome'},
       ]
     };
   }
@@ -26,10 +34,10 @@ class Flat extends Component {
     return (
       <div className="flat-buddies">
         <Header/>
-        <Rooms rooms = { this.state.rooms } />
+        <Flats allRooms = {this.state.rooms} />
       </div>
     );
   }
 }
 
-export default Flat;
+export default App;
