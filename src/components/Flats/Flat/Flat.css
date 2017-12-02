@@ -1,11 +1,8 @@
 .room {
   margin-bottom: 1rem;
-}
-
-.room p {
-  margin-bottom: .5em;
-}
-
-.room p::first-letter {
-  text-transform: uppercase;
-}
+  float: left;
+  width: 50%; }
+  .room p {
+    margin-bottom: .5em; }
+    .room p::first-letter {
+      text-transform: uppercase; }

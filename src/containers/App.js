@@ -10,31 +10,17 @@ class App extends Component {
 
     this.state = {
       rooms: [
-        { city: 'Sydney',
-          suburb: 'Ashfield',
-          roomtype: 'private room',
-          bathroom: 'shared bathroom',
-          furnishing: 'Unfurnished',
-          available: 'Oct 14, 2017',
-          length_of_stay: 2,
-          gender: 'Anyone welcome'},
-        { city: 'Sydney',
-          suburb: 'Glebe',
-          roomtype: 'shared room',
-          bathroom: 'shared bathroom',
-          furnishing: 'Unfurnished',
-          available: 'Oct 14, 2017',
-          length_of_stay: 2,
-          gender: 'Anyone welcome'},
+        { city: 'Sydney', suburb: 'Ashfield', roomtype: 'private room', bathroom: 'shared bathroom', furnishing: 'Unfurnished', available: 'Oct 14, 2017', length_of_stay: 6, gender: 'Anyone' },
+        { city: 'Sydney', suburb: 'Glebe', roomtype: 'shared room', bathroom: 'shared bathroom', furnishing: 'Unfurnished', available: 'Oct 12, 2017', length_of_stay: 2, gender: 'Anyone welcome' },
       ]
     };
   }
 
   render() {
     return (
-      <div className="flat-buddies">
-        <Header/>
-        <Flats allRooms = {this.state.rooms} />
+      <div className="flat-buddies clearfix">
+        <Header />
+        <Flats rooms={this.state.rooms} />
       </div>
     );
   }

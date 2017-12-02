@@ -1,0 +1,13 @@
+.room {
+  margin-bottom: 1rem;
+  float: left;
+  width: 50%;
+
+  p {
+    margin-bottom: .5em;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
