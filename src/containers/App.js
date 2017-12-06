@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 
 import Header from '../components/Header';
 import Flats from '../components/Flats/Flats';
@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://my-json-server.typicode.com/sreckovic/flat-buddies/rooms').then(response => {
+    axios.get('/rooms').then(response => {
       const rooms = response.data;
       this.setState({ rooms: rooms });
     });
