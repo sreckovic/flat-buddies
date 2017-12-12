@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Flat.css';
+import './SingleRoom.css';
 
 const flat = (props) => {
   return (
