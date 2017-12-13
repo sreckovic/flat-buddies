@@ -1,3 +1,25 @@
 header, .header {
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2.4em;
+    font-weight: 700;
+    margin-bottom: .5rem;
+
+    a {
+      color: #1e1e1e;
+    }
+  }
+
+  h2 {
+    font-size: 1.2em;
+    font-weight: normal;
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    li {
+      margin-bottom: .5rem;
+    }
+  } 
 }

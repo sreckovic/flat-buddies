@@ -1,40 +1,61 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import axios from '../../axios';
+import axios from "../../axios";
 
-import SingleRoom from '../../components/SingleRoom/SingleRoom'
+import SingleRoom from "../../components/SingleRoom/SingleRoom";
 
 class Rooms extends Component {
   state = {
-    rooms: []
+    rooms: [],
+    loading: true,
+    error: false
   };
 
   componentDidMount() {
-    axios.get('/rooms').then(response => {
-      const rooms = response.data;
-      this.setState({ rooms: rooms });
-      console.log('[componentDidMount]');
-      console.log(this.state.rooms);
-    });
+    axios
+      .get("/rooms.json")
+      .then(response => {
+        const fetchedRooms = response.data;
+        const newRooms = [];
+
+        for (let key in fetchedRooms) {
+          if (!fetchedRooms.hasOwnProperty(key)) continue;
+          // Push new room object in newRooms array
+          newRooms.push({ id: key, address: fetchedRooms[key].address });
+        }
+
+        this.setState({ rooms: newRooms });
+        console.log(this.state.rooms);
+      })
+      .catch(error => {
+        this.setState({ error: true });
+        //console.log(error);
+      });
   }
 
   render() {
-    let roomsList = <p style={{ textAlign: 'center' }}>Something went wrong!</p>;
+    let roomsList = null;
 
-    console.log(roomsList);
+    if (this.state.loading) {
+      roomsList = <p style={{ textAlign: "center" }}>Loading...</p>;
+    }
+
+    if (this.state.error) {
+      roomsList = <p style={{ textAlign: "center" }}>Something went wrong!</p>;
+    }
 
     if (this.state.rooms) {
       roomsList = this.state.rooms.map(room => {
         return (
-          <Link to={'/posts/' + room.id} key={room.id}>
+          <Link to={"/rooms/" + room.id} key={room.id}>
             <SingleRoom room={room} />
           </Link>
         );
       });
     }
 
-    return (<div>{roomsList}</div>);
+    return <div className="roomsList">{roomsList}</div>;
   }
 }
 

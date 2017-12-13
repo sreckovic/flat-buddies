@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Header from '../../components/Header/Header';
-import Rooms from '../Rooms/Rooms';
-import NewRoom from '../../components/NewRoom/NewRoom'
+import Aux from "../../hoc/Aux/Aux";
+import Header from "../../components/Header/Header";
+import Rooms from "../Rooms/Rooms";
+import NewRoom from "../../components/NewRoom/NewRoom";
 
 class Catalogue extends Component {
   state = {
@@ -13,10 +14,9 @@ class Catalogue extends Component {
 
   render() {
     return (
-      <div>
+      <Aux>
         <Header />
         <Switch>
-
           {this.state.auth ? (
             <Route path="/add-listing" component={NewRoom} />
           ) : null}
@@ -26,8 +26,8 @@ class Catalogue extends Component {
 
           {<Route render={() => <h1>Not found</h1>} />}
         </Switch>
-      </div>
-    )
+      </Aux>
+    );
   }
 }
 
