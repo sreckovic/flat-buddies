@@ -14,6 +14,8 @@ class NewRoom extends Component {
   state = {
     address: "",
     type: null,
+    description: "",
+    flatmates: "",
     submitted: false
   };
 
@@ -24,7 +26,9 @@ class NewRoom extends Component {
   postHandler = event => {
     const newRoomData = {
       address: this.state.address,
-      type: this.state.type
+      type: this.state.type,
+      description: this.state.description,
+      flatmates: this.state.flatmates
     };
 
     console.log(newRoomData);
@@ -70,12 +74,18 @@ class NewRoom extends Component {
 
           <label>What's great about living in this property?</label>
           <div>
-            <TextArea />
+            <TextArea
+              value={this.state.description}
+              onChange={this.handleChange}
+            />
           </div>
 
           <label>Details about you and your flatmates</label>
           <div>
-            <textarea value={this.state.value} onChange={this.handleChange} />
+            <TextArea
+              value={this.state.flatmates}
+              onChange={this.handleChange}
+            />
           </div>
           <button>Create your listing</button>
         </form>

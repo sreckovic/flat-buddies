@@ -5,6 +5,7 @@ import Aux from "../../hoc/Aux/Aux";
 import Header from "../../components/Header/Header";
 import Rooms from "../Rooms/Rooms";
 import NewRoom from "../../components/NewRoom/NewRoom";
+import Footer from "../../components/Footer/Footer";
 
 class Catalogue extends Component {
   state = {
@@ -26,6 +27,7 @@ class Catalogue extends Component {
 
           {<Route render={() => <h1>Not found</h1>} />}
         </Switch>
+        <Footer />
       </Aux>
     );
   }

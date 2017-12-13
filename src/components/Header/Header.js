@@ -1,12 +1,14 @@
-import React from 'react';
-import { NavLink } from "react-router-dom";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
-import './Header.css';
+import "./Header.css";
 
 const header = () => {
   return (
     <header className="header">
-      <h1>FlatBuddies.co</h1>
+      <h1>
+        <Link to={"/"}>FlatBuddies.co</Link>
+      </h1>
       <h2>Share accommodation website.</h2>
 
       <nav>
@@ -15,27 +17,27 @@ const header = () => {
             <NavLink
               to="/rooms/"
               exact
-            // activeClassName="my-active"
-            // activeStyle={{ color: "#fa923f", textDecoration: "underline" }}
+              // activeClassName="my-active"
+              // activeStyle={{ color: "#fa923f", textDecoration: "underline" }}
             >
               Rooms
-                </NavLink>
+            </NavLink>
           </li>
           <li>
             <NavLink
               to={{
-                pathname: "/add-listing",
+                pathname: "/add-listing"
                 //hash: "#submit",
                 //search: "?quick-submit=true"
               }}
             >
               List my place
-                </NavLink>
+            </NavLink>
           </li>
         </ul>
       </nav>
     </header>
-  )
-}
+  );
+};
 
 export default header;
