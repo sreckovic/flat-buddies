@@ -2,7 +2,12 @@ import React from "react";
 
 const textarea = props => (
   <div>
-    <textarea value={props.value} onChange={props.handleChange} />
+    <textarea
+      className="textarea"
+      placeholder={props.placeholder}
+      value={props.value}
+      onChange={props.handleChange}
+    />
   </div>
 );
 

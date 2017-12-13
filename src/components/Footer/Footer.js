@@ -5,14 +5,16 @@ import "./Footer.css";
 const footer = () => {
   return (
     <footer className="footer">
-      <p>
-        <small>
-          by Nemanja,{" "}
-          <a href="https://github.com/sreckovic/flat-buddies">
-            https://github.com/sreckovic/flat-buddies
-          </a>
-        </small>
-      </p>
+      <div className="container">
+        <div className="content has-text-centered">
+          <p>
+            <strong>Flatbuddies</strong> by Nemanja. The source code{" "}
+            <a href="https://github.com/sreckovic/flat-buddies">
+              https://github.com/sreckovic/flat-buddies
+            </a>
+          </p>
+        </div>
+      </div>
     </footer>
   );
 };

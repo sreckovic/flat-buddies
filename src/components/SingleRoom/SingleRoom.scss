@@ -1,15 +1,5 @@
 .room {
   margin-bottom: 1rem;
-  float: left;
-  width: 33.333%;
-
-  @media all and (max-width: 1024px) {
-    width: 50%;
-  }
-
-  @media all and (max-width: 800px) {
-    width: 100%;
-  }
 
   p {
     margin-bottom: .5em;

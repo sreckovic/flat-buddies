@@ -9,9 +9,9 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="flat-buddies clearfix">
+        <section className="section">
           <Catalogue />
-        </div>
+        </section>
       </BrowserRouter>
     );
   }

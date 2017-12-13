@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto+Slab:400,700");
 /* http://meyerweb.com/eric/tools/css/reset/ 
   v2.0 | 20110126
   License: none (public domain)
@@ -52,28 +52,15 @@ a {
 
 body {
   background-color: #f5f5f5;
-  font-family: 'Roboto Slab', serif;
-  font-size: 1.2em;
-  line-height: 1;
-  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  line-height: 1.4;
+  font-weight: 400;
   color: #1e1e1e; }
 
 h1, h2, h3, h4 {
+  font-family: 'Roboto Slab', serif;
   font-weight: 400; }
 
 h2, h3, p {
   margin-bottom: 1rem; }
-
-.clearfix:after {
-  content: ".";
-  visibility: hidden;
-  display: block;
-  height: 0;
-  clear: both; }
-
-.flat-buddies {
-  background-color: #fff;
-  padding: 3rem;
-  margin: 1rem auto;
-  width: 80%;
-  max-width: 1024px; }

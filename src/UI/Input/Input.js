@@ -3,6 +3,7 @@ import React from "react";
 const input = props => (
   <div>
     <input
+      className="input"
       type={props.type}
       name={props.name}
       placeholder={props.placeholder}

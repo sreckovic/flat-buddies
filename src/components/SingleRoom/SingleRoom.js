@@ -1,21 +1,29 @@
-import React from 'react';
+import React from "react";
 
-import './SingleRoom.css';
+import { Link } from "react-router-dom";
 
-const flat = (props) => {
+import "./SingleRoom.css";
+
+const flat = props => {
   return (
     <div className="room">
-      <h3><a href="">{props.room.suburb}, {props.room.city}</a></h3>
+      <Link to={"/rooms/" + props.room.id}>
+        <h3>
+          {props.room.suburb}, {props.room.city}
+        </h3>
 
-      <p>Available from {props.room.available}</p>
-      <p>{props.room.roomtype} with {props.room.bathroom}</p>
-      <p>
-        {props.room.furnishing}
-        {props.room.length_of_stay}
-        {props.room.gender}
-      </p>
+        <p>Available from {props.room.available}</p>
+        <p>
+          {props.room.roomtype} with {props.room.bathroom}
+        </p>
+        <p>
+          {props.room.furnishing}
+          {props.room.length_of_stay}
+          {props.room.gender}
+        </p>
+      </Link>
     </div>
-  )
-}
+  );
+};
 
 export default flat;

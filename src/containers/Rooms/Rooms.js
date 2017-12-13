@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import axios from "../../axios";
 
@@ -48,14 +47,14 @@ class Rooms extends Component {
     if (this.state.rooms) {
       roomsList = this.state.rooms.map(room => {
         return (
-          <Link to={"/rooms/" + room.id} key={room.id}>
+          <div className="column is-one-third" key={room.id}>
             <SingleRoom room={room} />
-          </Link>
+          </div>
         );
       });
     }
 
-    return <div className="roomsList">{roomsList}</div>;
+    return <div className="columns">{roomsList}</div>;
   }
 }
 

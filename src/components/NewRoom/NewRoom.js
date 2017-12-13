@@ -49,11 +49,11 @@ class NewRoom extends Component {
 
   render() {
     return (
-      <Aux>
+      <div className="addNewRoom">
         <h2>Add new listing</h2>
         <p>Room(s) in an existing share house</p>
 
-        <form onSubmit={this.postHandler} className="addNewRome">
+        <form onSubmit={this.postHandler}>
           <h3>About the property</h3>
 
           <Input
@@ -72,24 +72,28 @@ class NewRoom extends Component {
 
           <h3>Accepting</h3>
 
-          <label>What's great about living in this property?</label>
+          <label className="label">
+            What's great about living in this property?
+          </label>
           <div>
             <TextArea
+              placeholder="What's great about living in this property?"
               value={this.state.description}
               onChange={this.handleChange}
             />
           </div>
 
-          <label>Details about you and your flatmates</label>
+          <label className="label">Details about you and your flatmates</label>
           <div>
             <TextArea
+              placeholder="Details about you and your flatmates"
               value={this.state.flatmates}
               onChange={this.handleChange}
             />
           </div>
-          <button>Create your listing</button>
+          <button className="button is-primary">Create your listing</button>
         </form>
-      </Aux>
+      </div>
     );
   }
 }
