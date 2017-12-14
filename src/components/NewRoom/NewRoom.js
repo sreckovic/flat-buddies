@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "../../axios";
 
-import Aux from "../../hoc/Aux/Aux";
+// import Aux from "../../hoc/Aux/Aux";
 import Select from "../../UI/Select/Select";
 import Input from "../../UI/Input/Input";
 import TextArea from "../../UI/Textarea/Textarea";
@@ -19,32 +19,31 @@ class NewRoom extends Component {
     submitted: false
   };
 
-  handleChange = event => {
+  handleChange = (event, value) => {
     this.setState({ address: event.target.value });
   };
 
-  postHandler = event => {
-    const newRoomData = {
+  postHandler = e => {
+    const newRoom = {
       address: this.state.address,
       type: this.state.type,
       description: this.state.description,
       flatmates: this.state.flatmates
     };
 
-    console.log(newRoomData);
+    console.log(newRoom);
 
     axios
-      .post("/rooms.json", newRoomData)
+      .post("/rooms.json", newRoom)
       .then(response => {
         console.log(response);
-        this.setState({ submitted: false });
+        this.setState({ submitted: true });
         // this.props.history.replace("/posts");
         // this.props.history.push("/posts");
-        // this.setState({ submitted: true });
       })
-      .catch(error => this.setState({ loading: false, purchasing: false }));
+      .catch(error => this.setState({ submitted: false }));
 
-    event.preventDefault();
+    e.preventDefault();
   };
 
   render() {
@@ -75,22 +74,18 @@ class NewRoom extends Component {
           <label className="label">
             What's great about living in this property?
           </label>
-          <div>
-            <TextArea
-              placeholder="What's great about living in this property?"
-              value={this.state.description}
-              onChange={this.handleChange}
-            />
-          </div>
+          <TextArea
+            placeholder="What's great about living in this property?"
+            value={this.state.description}
+            onChange={this.handleChange}
+          />
 
           <label className="label">Details about you and your flatmates</label>
-          <div>
-            <TextArea
-              placeholder="Details about you and your flatmates"
-              value={this.state.flatmates}
-              onChange={this.handleChange}
-            />
-          </div>
+          <TextArea
+            placeholder="Details about you and your flatmates"
+            value={this.state.flatmates}
+            onChange={this.handleChange}
+          />
           <button className="button is-primary">Create your listing</button>
         </form>
       </div>
