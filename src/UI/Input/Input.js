@@ -9,7 +9,7 @@ const input = props => (
         name={props.name}
         placeholder={props.placeholder}
         value={props.address}
-        onChange={props.handleChange}
+        onChange={event => props.handleChange(event, props.name)}
       />
     </div>
   </div>
