@@ -19,8 +19,8 @@ class NewRoom extends Component {
     submitted: false
   };
 
-  handleChange = (event, value) => {
-    this.setState({ address: event.target.value });
+  handleChange = (event, propertyName) => {
+    this.setState({ propertyName: event.target.value });
   };
 
   postHandler = e => {
@@ -62,8 +62,28 @@ class NewRoom extends Component {
             name="address"
             placeholder="Property address"
           />
+          <div className="field">
+            <Select
+              name="type"
+              values={[
+                { value: "0", label: "Type of property" },
+                { value: "1", label: "House" },
+                { value: "2", label: "Flat" }
+              ]}
+            />
 
-          <Select />
+            <Select
+              name="bedrooms"
+              values={[
+                { value: "0", label: "Total bedrooms" },
+                { value: "1", label: "2 bed property" },
+                { value: "2", label: "3 bed property" },
+                { value: "3", label: "4 bed property" },
+                { value: "4", label: "5 bed property" },
+                { value: "5", label: "6+ bed property" }
+              ]}
+            />
+          </div>
 
           <h3>About the property</h3>
 

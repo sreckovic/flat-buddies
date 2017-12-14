@@ -29,23 +29,23 @@ class Rooms extends Component {
       })
       .catch(error => {
         this.setState({ error: true });
-        //console.log(error);
+        console.log(error);
       });
   }
 
   render() {
-    let roomsList = null;
+    let rooms = null;
 
     if (this.state.loading) {
-      roomsList = <p style={{ textAlign: "center" }}>Loading...</p>;
+      rooms = <p style={{ textAlign: "center" }}>Loading...</p>;
     }
 
     if (this.state.error) {
-      roomsList = <p style={{ textAlign: "center" }}>Something went wrong!</p>;
+      rooms = <p style={{ textAlign: "center" }}>Something went wrong!</p>;
     }
 
     if (this.state.rooms) {
-      roomsList = this.state.rooms.map(room => {
+      rooms = this.state.rooms.map(room => {
         return (
           <div className="column is-one-third" key={room.id}>
             <SingleRoom room={room} />
@@ -54,7 +54,7 @@ class Rooms extends Component {
       });
     }
 
-    return <div className="columns">{roomsList}</div>;
+    return <div className="columns">{rooms}</div>;
   }
 }
 
