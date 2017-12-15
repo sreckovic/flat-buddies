@@ -5,6 +5,7 @@ import axios from "../../axios";
 import Select from "../../UI/Select/Select";
 import Input from "../../UI/Input/Input";
 import TextArea from "../../UI/Textarea/Textarea";
+import Tags from "../../UI/Tags/Tags";
 
 import "./NewRoom.css";
 
@@ -332,6 +333,12 @@ class NewRoom extends Component {
           </div>
 
           <h3>Accepting</h3>
+
+          <div className="columns">
+            <div className="column">
+              <Tags />
+            </div>
+          </div>
 
           <div className="field">
             <label className="label">
