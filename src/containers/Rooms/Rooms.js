@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import axios from "../../axios";
 
+import Aux from "../../hoc/Aux/Aux";
 import SingleRoom from "../../components/SingleRoom/SingleRoom";
 
 class Rooms extends Component {
@@ -18,10 +19,22 @@ class Rooms extends Component {
         const fetchedRooms = response.data;
         const newRooms = [];
 
+        console.log(fetchedRooms);
+
         for (let key in fetchedRooms) {
           if (!fetchedRooms.hasOwnProperty(key)) continue;
           // Push new room object in newRooms array
-          newRooms.push({ id: key, address: fetchedRooms[key].address });
+          newRooms.push({
+            id: key,
+            address: fetchedRooms[key].address,
+            bathrooms: fetchedRooms[key].bathrooms,
+            bedrooms: fetchedRooms[key].bedrooms,
+            description: fetchedRooms[key].description,
+            flatmates: fetchedRooms[key].flatmates,
+            internet: fetchedRooms[key].internet,
+            parking: fetchedRooms[key].parking,
+            type: fetchedRooms[key].type
+          });
         }
 
         this.setState({ rooms: newRooms });
@@ -54,7 +67,12 @@ class Rooms extends Component {
       });
     }
 
-    return <div className="columns">{rooms}</div>;
+    return (
+      <Aux>
+        <h2>Rooms for Rent</h2>
+        <div className="columns is-multiline">{rooms}</div>
+      </Aux>
+    );
   }
 }
 

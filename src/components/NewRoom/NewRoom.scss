@@ -1,6 +1,17 @@
 .addNewRoom {
   h2 {
     font-size: 1.4em;
-    font-weight: 700;
+  }
+
+  div.select {
+    width: 100%;
+
+    select {
+      width: 100%;
+    }
+  }
+
+  label {
+    font-weight: 600;
   }
 }

@@ -9,9 +9,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <section className="section">
-          <Catalogue />
-        </section>
+        <Catalogue />
       </BrowserRouter>
     );
   }

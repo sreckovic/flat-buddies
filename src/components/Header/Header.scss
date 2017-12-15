@@ -1,5 +1,4 @@
 header, .header {
-  margin-bottom: 2rem;
 
   h1 {
     font-size: 2.4em;
@@ -18,6 +17,7 @@ header, .header {
   }
 
   ul {
+    padding: .5rem;
     li {
       margin-bottom: .5rem;
     }
