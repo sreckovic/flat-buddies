@@ -7,7 +7,7 @@ const tag = props => {
     <div className="control">
       <div className="tags has-addons">
         <a className="tag is-delete is-medium" aria-hidden="true" />
-        <span className="tag is-medium">Technology</span>
+        <span className="tag is-medium">Students OK</span>
       </div>
     </div>
   );

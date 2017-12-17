@@ -8,7 +8,7 @@ const input = props => (
         placeholder={props.placeholder}
         type={props.type ? props.type : "text"}
         name={props.name}
-        value={props.address}
+        value={props.value}
         onChange={event => props.handleChange(event)}
       />
     </div>

@@ -29,6 +29,9 @@ class NewRoom extends Component {
     gender: "",
     min: 0,
     max: 0,
+
+    students: false,
+
     description: "",
     flatmates: "",
     submitted: false
@@ -43,8 +46,6 @@ class NewRoom extends Component {
       persons: this.state.persons,
       internet: this.state.internet,
       parking: this.state.parking,
-      description: this.state.description,
-      flatmates: this.state.flatmates,
 
       rent: this.state.rent,
       bills: this.state.bills,
@@ -54,7 +55,12 @@ class NewRoom extends Component {
       bathroomType: this.state.bathroomType,
       gender: this.state.gender,
       min: this.state.min,
-      max: this.state.max
+      max: this.state.max,
+
+      students: this.state.students,
+
+      description: this.state.description,
+      flatmates: this.state.flatmates
     };
 
     console.log(newRoom);
@@ -73,8 +79,10 @@ class NewRoom extends Component {
   };
 
   handleChange = event => {
-    const name = event.target.name;
-    this.setState({ [name]: event.target.value });
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+    this.setState({ [name]: value });
   };
 
   render() {
@@ -335,6 +343,16 @@ class NewRoom extends Component {
           <div className="columns">
             <div className="column">
               <Tags />
+
+              <label class="checkbox">
+                <input
+                  type="checkbox"
+                  name="students"
+                  checked={this.state.students}
+                  onChange={this.handleChange}
+                />
+                Students OK
+              </label>
             </div>
           </div>
 
