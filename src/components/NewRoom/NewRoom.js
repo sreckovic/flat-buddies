@@ -232,7 +232,7 @@ class NewRoom extends Component {
             <div className="column">
               <Tags />
 
-              <label class="checkbox">
+              <label className="checkbox">
                 <input
                   type="checkbox"
                   name="students"

@@ -7,7 +7,7 @@ import SingleRoom from "../../components/SingleRoom/SingleRoom";
 
 class Rooms extends Component {
   state = {
-    rooms: [],
+    rooms: null,
     loading: true,
     error: false
   };
@@ -37,11 +37,11 @@ class Rooms extends Component {
           });
         }
 
-        this.setState({ rooms: newRooms });
-        console.log(this.state.rooms);
+        this.setState({ loading: false, rooms: newRooms });
+        //console.log(this.state.rooms);
       })
       .catch(error => {
-        this.setState({ error: true });
+        this.setState({ loading: false, error: true });
         console.log(error);
       });
   }
@@ -50,11 +50,19 @@ class Rooms extends Component {
     let rooms = null;
 
     if (this.state.loading) {
-      rooms = <p style={{ textAlign: "center" }}>Loading...</p>;
+      rooms = (
+        <div className="column">
+          <p style={{ textAlign: "center" }}>Loading...</p>
+        </div>
+      );
     }
 
     if (this.state.error) {
-      rooms = <p style={{ textAlign: "center" }}>Something went wrong!</p>;
+      rooms = (
+        <div className="column">
+          <p style={{ textAlign: "center" }}>Something went wrong!</p>
+        </div>
+      );
     }
 
     if (this.state.rooms) {
