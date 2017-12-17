@@ -4,6 +4,7 @@ import axios from "../../axios";
 
 import Aux from "../../hoc/Aux/Aux";
 import SingleRoom from "../../components/SingleRoom/SingleRoom";
+import Spinner from "../../UI/Spinner/Spinner";
 
 class Rooms extends Component {
   state = {
@@ -52,7 +53,7 @@ class Rooms extends Component {
     if (this.state.loading) {
       rooms = (
         <div className="column">
-          <p style={{ textAlign: "center" }}>Loading...</p>
+          <Spinner />
         </div>
       );
     }
