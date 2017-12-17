@@ -9,9 +9,9 @@ const singleRoom = props => {
 
   if (props.room.address) {
     address = (
-      <Link to={"/rooms/" + props.room.id}>
-        <h3>{props.room.address}</h3>
-      </Link>
+      <h3>
+        <Link to={"/rooms/" + props.room.id}>{props.room.address}</Link>
+      </h3>
     );
   } else {
     address = null;
@@ -30,7 +30,9 @@ const singleRoom = props => {
   if (props.room.description) {
     desc = (
       <p className="abstract">
-        {props.room.description.substring(0, 120) + "..."}{" "}
+        <Link to={"/rooms/" + props.room.id}>
+          {props.room.description.substring(0, 120) + "..."}
+        </Link>
       </p>
     );
   } else {
