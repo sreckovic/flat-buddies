@@ -1,7 +1,10 @@
 import axios from "axios";
+import config from "./config";
+
+console.log(config);
 
 const instance = axios.create({
-  baseURL: "https://flat-buddies.firebaseio.com/"
+  baseURL: config.baseURL
 });
 
 instance.interceptors.request.use(

@@ -4,11 +4,11 @@ const textarea = props => (
   <div className="field">
     <div className="control">
       <textarea
-        name={props.name}
         className="textarea"
         placeholder={props.placeholder}
+        name={props.name}
         value={props.value}
-        onChange={event => props.handleChange(event, props.name)}
+        onChange={event => props.handleChange(event)}
       />
     </div>
   </div>

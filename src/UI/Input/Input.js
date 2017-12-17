@@ -5,11 +5,11 @@ const input = props => (
     <div className="control">
       <input
         className="input"
-        type={props.type}
-        name={props.name}
         placeholder={props.placeholder}
+        type={props.type ? props.type : "text"}
+        name={props.name}
         value={props.address}
-        onChange={event => props.handleChange(event, props.name)}
+        onChange={event => props.handleChange(event)}
       />
     </div>
   </div>

@@ -8,7 +8,7 @@ const select = props => {
           <select
             name={props.name}
             value={props.value}
-            onChange={event => props.handleChange(event, props.name)}
+            onChange={event => props.handleChange(event)}
           >
             {props.options.map((option, i) => {
               return (

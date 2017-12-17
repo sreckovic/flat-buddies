@@ -20,7 +20,6 @@ class NewRoom extends Component {
     persons: "",
     internet: "",
     parking: "",
-
     rent: null,
     bills: "",
     bond: "",
@@ -30,7 +29,6 @@ class NewRoom extends Component {
     gender: "",
     min: 0,
     max: 0,
-
     description: "",
     flatmates: "",
     submitted: false
@@ -51,7 +49,7 @@ class NewRoom extends Component {
       rent: this.state.rent,
       bills: this.state.bills,
       bond: this.state.bond,
-      roomType: this.state.roomtype,
+      roomType: this.state.roomType,
       furnishings: this.state.furnishings,
       bathroomType: this.state.bathroomType,
       gender: this.state.gender,
@@ -74,8 +72,9 @@ class NewRoom extends Component {
     event.preventDefault();
   };
 
-  handleChange = (event, propertyName) => {
-    this.setState({ [propertyName]: event.target.value });
+  handleChange = event => {
+    const name = event.target.name;
+    this.setState({ [name]: event.target.value });
   };
 
   render() {
@@ -91,7 +90,6 @@ class NewRoom extends Component {
             <div className="column">
               <div className="field">
                 <Input
-                  type="text"
                   name="address"
                   placeholder="Property address"
                   handleChange={this.handleChange}
@@ -341,7 +339,7 @@ class NewRoom extends Component {
           </div>
 
           <div className="field">
-            <label className="label">
+            <label flatmates="description" className="label">
               What's great about living in this property?
             </label>
             <TextArea
@@ -353,7 +351,7 @@ class NewRoom extends Component {
           </div>
 
           <div className="field">
-            <label className="label">
+            <label htmlFor="flatmates" className="label">
               Details about you and your flatmates
             </label>
             <TextArea
