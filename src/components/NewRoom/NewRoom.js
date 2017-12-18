@@ -102,14 +102,14 @@ class NewRoom extends Component {
 
     switch (name) {
       case "address":
-        console.log(addressValid, value);
         addressValid = value.length >= 6;
         fieldValidationErrors.address = addressValid ? "" : " is invalid";
+        console.log(addressValid, value);
         break;
       case "type":
+        typeValid = value.length >= 1 && value !== "0";
+        fieldValidationErrors.type = typeValid ? "" : " is invalid";
         console.log(typeValid, value);
-        typeValid = value.length >= 1;
-        fieldValidationErrors.type = typeValid ? "" : " is too short";
         break;
       default:
         break;
