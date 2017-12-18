@@ -10,7 +10,7 @@ const formErrors = ({ formErrors }) => (
           </p>
         );
       } else {
-        return "";
+        return null;
       }
     })}
   </div>

@@ -10,7 +10,7 @@ const singleRoom = props => {
   if (props.room.address) {
     address = (
       <h3>
-        <Link to={"/rooms/" + props.room.id}>{props.room.address}</Link>
+        <Link to={"/room/" + props.room.id}>{props.room.address}</Link>
       </h3>
     );
   } else {

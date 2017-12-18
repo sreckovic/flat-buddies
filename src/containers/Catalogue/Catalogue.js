@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Aux from "../../hoc/Aux/Aux";
 import Header from "../../components/Header/Header";
 import Rooms from "../Rooms/Rooms";
-import SingleRoom from "../../components/SingleRoom/SingleRoom";
+import FullRoom from "../../components/FullRoom/FullRoom";
 import NewRoom from "../../components/NewRoom/NewRoom";
 import Footer from "../../components/Footer/Footer";
 
@@ -28,7 +28,7 @@ class Catalogue extends Component {
                 <Route path="/add-listing" component={NewRoom} />
               ) : null}
 
-              <Route path="/rooms/:id" exact component={SingleRoom} />
+              <Route path="/room/:id" exact component={FullRoom} />
               <Route path="/rooms" exact component={Rooms} />
               <Route path="/" exact component={Rooms} />
 
