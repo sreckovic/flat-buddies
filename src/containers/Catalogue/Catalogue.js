@@ -22,17 +22,19 @@ class Catalogue extends Component {
         </div>
 
         <div className="section">
-          <Switch>
-            {this.state.auth ? (
-              <Route path="/add-listing" component={NewRoom} />
-            ) : null}
+          <div className="container">
+            <Switch>
+              {this.state.auth ? (
+                <Route path="/add-listing" component={NewRoom} />
+              ) : null}
 
-            <Route path="/rooms/:id" exact component={SingleRoom} />
-            <Route path="/rooms" exact component={Rooms} />
-            <Route path="/" exact component={Rooms} />
+              <Route path="/rooms/:id" exact component={SingleRoom} />
+              <Route path="/rooms" exact component={Rooms} />
+              <Route path="/" exact component={Rooms} />
 
-            {<Route render={() => <h1>Not found</h1>} />}
-          </Switch>
+              {<Route render={() => <h1>Not found</h1>} />}
+            </Switch>
+          </div>
         </div>
 
         <div className="section">

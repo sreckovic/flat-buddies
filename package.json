@@ -13,6 +13,7 @@
     "react-scripts": "1.0.14"
   },
   "scripts": {
+    "deploy": "firebase deploy",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "PORT=3006 react-scripts start",
