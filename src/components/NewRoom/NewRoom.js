@@ -6,6 +6,7 @@ import Select from "../../UI/Select/Select";
 import Input from "../../UI/Input/Input";
 import TextArea from "../../UI/Textarea/Textarea";
 import Tags from "../../UI/Tags/Tags";
+import FormErrors from "../FormErrors/FormErrors";
 
 import fields from "./fields";
 
@@ -36,7 +37,12 @@ class NewRoom extends Component {
 
     description: "",
     flatmates: "",
-    submitted: false
+    submitted: false,
+
+    formErrors: { address: "", type: "" },
+    addressValid: false,
+    typeValid: false,
+    formValid: false
   };
 
   postHandler = event => {
@@ -84,10 +90,53 @@ class NewRoom extends Component {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
-    this.setState({ [name]: value });
+    this.setState({ [name]: value }, () => {
+      this.validateField(name, value);
+    });
   };
 
+  validateField(name, value) {
+    let fieldValidationErrors = this.state.formErrors;
+    let addressValid = this.state.addressValid;
+    let typeValid = this.state.typeValid;
+
+    switch (name) {
+      case "address":
+        console.log(addressValid, value);
+        addressValid = value.length >= 6;
+        fieldValidationErrors.address = addressValid ? "" : " is invalid";
+        break;
+      case "type":
+        console.log(typeValid, value);
+        typeValid = value.length >= 1;
+        fieldValidationErrors.type = typeValid ? "" : " is too short";
+        break;
+      default:
+        break;
+    }
+    this.setState(
+      {
+        formErrors: fieldValidationErrors,
+        addressValid: addressValid,
+        typeValid: typeValid
+      },
+      this.validateForm
+    );
+  }
+
+  validateForm() {
+    this.setState({
+      formValid: this.state.addressValid && this.state.typeValid
+    });
+  }
+
   render() {
+    let formErrors = null;
+
+    if (this.state.formErrors) {
+      formErrors = <FormErrors formErrors={this.state.formErrors} />;
+    }
+
     return (
       <div className="addNewRoom">
         <h2>Add new listing</h2>
@@ -269,7 +318,10 @@ class NewRoom extends Component {
           </div>
 
           <div className="field">
-            <button className="button is-link">Create your listing</button>
+            {formErrors}
+            <button className="button is-link" disabled={!this.state.formValid}>
+              Create your listing
+            </button>
           </div>
         </form>
 
