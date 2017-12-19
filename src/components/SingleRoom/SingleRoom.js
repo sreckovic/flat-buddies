@@ -3,9 +3,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./SingleRoom.css";
+import temp_img from "../../assets/images/Screen Shot 2017-12-19 at 3.07.35 PM.png";
 
 const singleRoom = props => {
-  let address, type, desc;
+  let img, address, type, desc;
+
+  if (temp_img) {
+    img = (
+      <Link to={"/room/" + props.room.id}>
+        <img src={temp_img} />
+      </Link>
+    );
+  } else {
+    img = null;
+  }
 
   if (props.room.address) {
     address = (
@@ -17,10 +28,10 @@ const singleRoom = props => {
     address = null;
   }
 
-  if (props.room.type && props.room.bathrooms) {
+  if (props.room.type && props.room.furnishing) {
     type = (
       <p className="desc">
-        {props.room.type} with {props.room.bathrooms}
+        {props.room.furnishing} {props.room.type}
       </p>
     );
   } else {
@@ -39,17 +50,16 @@ const singleRoom = props => {
     desc = null;
   }
 
+  console.log(temp_img);
+
   return (
     <div className="singleRoom">
+      {/*img*/}
       {address}
       {type}
       {desc}
 
-      <p>
-        {props.room.furnishing}
-        {props.room.length_of_stay}
-        {props.room.gender}
-      </p>
+      <p>{props.room.bathrooms}</p>
     </div>
   );
 };

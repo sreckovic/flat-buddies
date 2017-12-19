@@ -28,13 +28,12 @@ class Rooms extends Component {
           newRooms.push({
             id: key,
             address: fetchedRooms[key].address,
+            type: fetchedRooms[key].type,
             bathrooms: fetchedRooms[key].bathrooms,
             bedrooms: fetchedRooms[key].bedrooms,
-            description: fetchedRooms[key].description,
-            flatmates: fetchedRooms[key].flatmates,
-            internet: fetchedRooms[key].internet,
-            parking: fetchedRooms[key].parking,
-            type: fetchedRooms[key].type
+            roomType: fetchedRooms[key].roomType,
+            furnishings: fetchedRooms[key].furnishings,
+            description: fetchedRooms[key].description
           });
         }
 

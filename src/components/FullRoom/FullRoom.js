@@ -2,6 +2,11 @@ import React, { Component } from "react";
 
 import axios from "../../axios";
 
+import Spinner from "../../UI/Spinner/Spinner";
+import Aux from "../../hoc/Aux/Aux";
+
+import "./FullRoom.css";
+
 class FullRoom extends Component {
   state = {
     room: null,
@@ -17,7 +22,7 @@ class FullRoom extends Component {
         .get("/rooms/" + this.props.match.params.id + ".json")
         .then(response => {
           console.log(response);
-          this.setState({ room: response.data });
+          this.setState({ room: response.data, loading: false });
           console.log(this.state.room);
         })
         .catch(error => {
@@ -30,15 +35,31 @@ class FullRoom extends Component {
   componentDidUpdate() {}
 
   render() {
-    return (
-      <div>
-        <h1>Single Full room view</h1>
-        <p />
-        {/*this.room.available ? (
-          <p>Available from {this.room.available}</p>
+    let fullRoom = null;
+
+    if (this.state.loading) {
+      fullRoom = <Spinner />;
+    }
+
+    if (this.state.error) {
+      fullRoom = <p style={{ textAlign: "center" }}>Something went wrong...</p>;
+    }
+
+    if (this.state.room) {
+      fullRoom = (
+        <div className="fullRoom">
+          <h1>{this.state.room.address}</h1>
+          <p />
+          {/*this.room.available ? (
+          <p>Available from {this.state.room.available}</p>
         ) : null*/}
-      </div>
-    );
+        </div>
+      );
+    }
+
+    console.log(fullRoom);
+
+    return <Aux>{fullRoom}</Aux>;
   }
 }
 
