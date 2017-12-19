@@ -50,28 +50,37 @@ const singleRoom = props => {
     desc = null;
   }
 
-  console.log(temp_img);
-
   return (
     <div className="singleRoom">
       {/*img*/}
       {address}
       {type}
       {desc}
+
       <ul>
-        <li>
-          <i className="fa fa-bed" aria-hidden="true" />
-          {props.room.bedrooms}
-        </li>
-        <li>
-          <i className="fa fa-bath" aria-hidden="true" />
-          {props.room.bathrooms}
-        </li>
-        <li>
-          <i className="fa fa-users" aria-hidden="true" />
-          {props.room.persons}
-        </li>
+        {props.room.bedrooms ? (
+          <li>
+            <i className="fa fa-bed" aria-hidden="true" />
+            {props.room.bedrooms}
+          </li>
+        ) : null}
+        {props.room.bathrooms ? (
+          <li>
+            <i className="fa fa-bath" aria-hidden="true" />
+            {props.room.bathrooms}
+          </li>
+        ) : null}
+        {props.room.persons ? (
+          <li>
+            <i className="fa fa-users" aria-hidden="true" />
+            {props.room.persons}
+          </li>
+        ) : null}
       </ul>
+
+      <p>
+        <Link to={"/room/" + props.room.id}>Message</Link>
+      </p>
     </div>
   );
 };
