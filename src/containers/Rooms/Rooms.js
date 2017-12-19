@@ -29,8 +29,9 @@ class Rooms extends Component {
             id: key,
             address: fetchedRooms[key].address,
             type: fetchedRooms[key].type,
-            bathrooms: fetchedRooms[key].bathrooms,
             bedrooms: fetchedRooms[key].bedrooms,
+            bathrooms: fetchedRooms[key].bathrooms,
+            persons: fetchedRooms[key].persons,
             roomType: fetchedRooms[key].roomType,
             furnishings: fetchedRooms[key].furnishings,
             description: fetchedRooms[key].description

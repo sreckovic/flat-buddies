@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./SingleRoom.css";
-import temp_img from "../../assets/images/Screen Shot 2017-12-19 at 3.07.35 PM.png";
+import temp_img from "../../assets/images/test_local.png";
 
 const singleRoom = props => {
   let img, address, type, desc;
@@ -11,7 +11,7 @@ const singleRoom = props => {
   if (temp_img) {
     img = (
       <Link to={"/room/" + props.room.id}>
-        <img src={temp_img} />
+        <img src={temp_img} alt="" />
       </Link>
     );
   } else {
@@ -58,8 +58,20 @@ const singleRoom = props => {
       {address}
       {type}
       {desc}
-
-      <p>{props.room.bathrooms}</p>
+      <ul>
+        <li>
+          <i className="fa fa-bed" aria-hidden="true" />
+          {props.room.bedrooms}
+        </li>
+        <li>
+          <i className="fa fa-bath" aria-hidden="true" />
+          {props.room.bathrooms}
+        </li>
+        <li>
+          <i className="fa fa-users" aria-hidden="true" />
+          {props.room.persons}
+        </li>
+      </ul>
     </div>
   );
 };

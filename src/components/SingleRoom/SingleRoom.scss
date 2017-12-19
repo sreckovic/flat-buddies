@@ -1,8 +1,15 @@
 .singleRoom {
   margin-bottom: .2rem;
+  padding: .2rem;
 
-  h3 {
+  h2 {
     margin-bottom: 0;
+  }
+
+  h2, .desc, .abstract {
+    a {
+      color: #1e1e1e;
+    }
   }
 
   p {
@@ -17,13 +24,21 @@
     &::first-letter {
       text-transform: capitalize;
     }
-
-    a {
-      color: #1e1e1e;
-    }
   }
 
   .desc {
     margin-bottom: 1.2rem;
+  }
+
+  ul li {
+    display: inline;
+    text-align: center;
+    color: #999;
+    margin-right: 1rem;
+
+    i {
+      color: #999;
+      margin-right: .3rem;
+    }
   }
 }

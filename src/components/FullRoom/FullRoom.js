@@ -21,9 +21,7 @@ class FullRoom extends Component {
       axios
         .get("/rooms/" + this.props.match.params.id + ".json")
         .then(response => {
-          console.log(response);
           this.setState({ room: response.data, loading: false });
-          console.log(this.state.room);
         })
         .catch(error => {
           this.setState({ loading: false, error: true });
@@ -56,8 +54,6 @@ class FullRoom extends Component {
         </div>
       );
     }
-
-    console.log(fullRoom);
 
     return <Aux>{fullRoom}</Aux>;
   }
