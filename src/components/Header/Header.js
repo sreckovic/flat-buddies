@@ -7,10 +7,10 @@ const header = () => {
   return (
     <header className="header">
       <div className="container">
-        <h1>
+        <h2>
           <Link to={"/"}>FlatBuddies.co</Link>
-        </h1>
-        <h2>Share accommodation website.</h2>
+        </h2>
+        <p className="subtitle">Share accommodation website.</p>
 
         <nav className="navbar" aria-label="main navigation">
           <div className="navbar-menu is-active">

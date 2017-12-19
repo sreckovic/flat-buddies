@@ -9,9 +9,9 @@ const singleRoom = props => {
 
   if (props.room.address) {
     address = (
-      <h3>
+      <h2>
         <Link to={"/room/" + props.room.id}>{props.room.address}</Link>
-      </h3>
+      </h2>
     );
   } else {
     address = null;

@@ -10,23 +10,15 @@ class FullRoom extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.match.params.id);
-    this.loadData();
+    // console.log(this.props.match.params.id);
 
-    console.log(this.state.room);
-  }
-
-  componentDidUpdate() {
-    //this.loadData();
-  }
-
-  loadData() {
     if (this.props.match.params.id) {
       axios
         .get("/rooms/" + this.props.match.params.id + ".json")
         .then(response => {
           console.log(response);
           this.setState({ room: response.data });
+          console.log(this.state.room);
         })
         .catch(error => {
           this.setState({ loading: false, error: true });
@@ -35,13 +27,21 @@ class FullRoom extends Component {
     }
   }
 
+  componentDidUpdate() {}
+
   render() {
-    return <div>Single Full room view -></div>;
+    return (
+      <div>
+        <h1>Single Full room view</h1>
+        <p />
+        {/*this.room.available ? (
+          <p>Available from {this.room.available}</p>
+        ) : null*/}
+      </div>
+    );
   }
 }
 
 export default FullRoom;
 
-/*props.room.available ? (
-      <p>Available from {props.room.available}</p>
-    ) : null*/
+/**/

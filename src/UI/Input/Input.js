@@ -4,7 +4,7 @@ const input = props => (
   <div className="field">
     <div className="control">
       <input
-        className="input"
+        className={"input " + props.validation}
         placeholder={props.placeholder ? props.placeholder : null}
         type={props.type ? props.type : "text"}
         name={props.name}

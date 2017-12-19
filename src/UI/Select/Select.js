@@ -4,7 +4,7 @@ const select = props => {
   return (
     <div className="field">
       <div className="control">
-        <div className="select">
+        <div className={"select " + props.validation}>
           <select
             name={props.name}
             value={props.value}

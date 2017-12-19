@@ -103,13 +103,17 @@ class NewRoom extends Component {
     switch (name) {
       case "address":
         addressValid = value.length >= 6;
-        fieldValidationErrors.address = addressValid ? "" : " is invalid";
-        console.log(addressValid, value);
+        fieldValidationErrors.address = addressValid
+          ? ""
+          : " is invalid, min length 6 characters.";
+        // console.log(addressValid, value);
         break;
       case "type":
         typeValid = value.length >= 1 && value !== "0";
-        fieldValidationErrors.type = typeValid ? "" : " is invalid";
-        console.log(typeValid, value);
+        fieldValidationErrors.type = typeValid
+          ? ""
+          : " is invalid, please select option.";
+        // console.log(typeValid, value);
         break;
       default:
         break;
@@ -128,6 +132,10 @@ class NewRoom extends Component {
     this.setState({
       formValid: this.state.addressValid && this.state.typeValid
     });
+  }
+
+  errorClass(error) {
+    return error.length === 0 ? "" : "is-danger";
   }
 
   render() {
@@ -149,6 +157,7 @@ class NewRoom extends Component {
             <div className="column">
               <Input
                 name="address"
+                validation={this.errorClass(this.state.formErrors.address)}
                 placeholder="Property address"
                 handleChange={this.handleChange}
                 value={this.address}
@@ -160,6 +169,7 @@ class NewRoom extends Component {
             <div className="column">
               <Select
                 name="type"
+                validation={this.errorClass(this.state.formErrors.type)}
                 handleChange={this.handleChange}
                 value={this.state.type}
                 options={fields.type}

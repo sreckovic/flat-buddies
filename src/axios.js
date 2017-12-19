@@ -9,7 +9,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
   request => {
     // Edit request config
-    console.log(request);
+    // console.log(request);
     return request;
   },
   error => {
@@ -21,7 +21,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   response => {
     // Edit request config
-    console.log(response);
+    // console.log(response);
     return response;
   },
   error => {

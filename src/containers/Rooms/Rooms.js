@@ -20,7 +20,7 @@ class Rooms extends Component {
         const fetchedRooms = response.data;
         const newRooms = [];
 
-        console.log(fetchedRooms);
+        // console.log(fetchedRooms);
 
         for (let key in fetchedRooms) {
           if (!fetchedRooms.hasOwnProperty(key)) continue;
@@ -78,7 +78,7 @@ class Rooms extends Component {
 
     return (
       <Aux>
-        <h2>Rooms for Rent</h2>
+        <h1>Rooms for Rent</h1>
         <div className="columns is-multiline">{rooms}</div>
       </Aux>
     );
