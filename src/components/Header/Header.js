@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 import "./Header.css";
 
-const header = () => {
+const header = props => {
   return (
     <header className="header">
       <div className="container">
@@ -15,6 +15,7 @@ const header = () => {
         <nav className="navbar" aria-label="main navigation">
           <div className="navbar-menu is-active">
             <ul>
+              {props.user ? <li>Hi {props.user.displayName}!</li> : null}
               <li>
                 <NavLink
                   to="/rooms/"
@@ -36,6 +37,15 @@ const header = () => {
                   List my place
                 </NavLink>
               </li>
+              {props.user ? (
+                <li>
+                  <a onClick={props.logout}>Logout</a>
+                </li>
+              ) : (
+                <li>
+                  <a onClick={props.login}>Login with Google</a>
+                </li>
+              )}
             </ul>
           </div>
         </nav>

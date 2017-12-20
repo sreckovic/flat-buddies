@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
-// import provider and auth that we exported from src/client.js
-import { provider, auth } from "../../client";
+// import provider and auth that we exported from src/firebase.js
+import { auth, providerGoogle, providerFacebook } from "../../firebase";
 
 import Aux from "../../hoc/Aux/Aux";
 import Header from "../../components/Header/Header";
@@ -13,45 +13,76 @@ import Footer from "../../components/Footer/Footer";
 
 class Catalogue extends Component {
   state = {
+    username: "",
     user: null,
-    auth: true,
+    auth: false,
     rooms: []
   };
 
   /*
   async componentWillMount() {
-    const user = await auth.onAuthStateChanged();
-    if (user) this.setState({ user });
+    const username = await auth.onAuthStateChanged();
+    if (username) this.setState({ username });
   }
   */
 
+  /*
   async login() {
-    const result = await auth().signInWithPopup(provider);
-    this.setState({ user: result.user });
+    const result = await auth().signInWithPopup(providerGoogle);
+    this.setState({ username: result.username });
   }
 
   logout() {
     // await auth().signOut()
     auth().signOut();
-    this.setState({ user: null });
+    this.setState({ username: null });
   }
+  */
+
+  componentDidMount() {
+    auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ user });
+      }
+    });
+  }
+
+  loginHandler = () => {
+    auth()
+      .signInWithPopup(providerGoogle)
+      .then(result => {
+        const user = result.user;
+        this.setState({
+          user: user
+        });
+      });
+  };
+
+  logoutHandler = () => {
+    auth()
+      .signOut()
+      .then(() => {
+        this.setState({
+          user: null
+        });
+      });
+  };
 
   render() {
     return (
       <Aux>
         <div className="section">
-          <Header />
-          <p>
-            {this.state.user ? "Hi, ${this.state.user.displayName}!" : "Hi!"}
-          </p>
-          <button onClick={this.login.bind(this)}>Login with Facebook</button>
-          <button onClick={this.logout.bind(this)}>Logout</button>
+          <Header
+            user={this.state.user}
+            login={this.loginHandler}
+            logout={this.logoutHandler}
+          />
         </div>
 
         <div className="section">
           <div className="container">
             <Switch>
-              {this.state.auth ? (
+              {this.state.user ? (
                 <Route path="/add-listing" component={NewRoom} />
               ) : null}
 
