@@ -1,8 +1,8 @@
 import firebase from "firebase";
 
-import "./config";
+import config from "./config";
 
-let config = {
+let configData = {
   apiKey: config.apiKey,
   authDomain: "flat-buddies.firebaseapp.com",
   databaseURL: "https://flat-buddies.firebaseio.com",
@@ -11,7 +11,7 @@ let config = {
   messagingSenderId: config.messagingSenderId
 };
 
-firebase.initializeApp(config);
+firebase.initializeApp(configData);
 
 export const ref = firebase.database().ref();
 export const auth = firebase.auth;
