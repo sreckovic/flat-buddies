@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
+// import provider and auth that we exported from src/client.js
+import { provider, auth } from "../../client";
+
 import Aux from "../../hoc/Aux/Aux";
 import Header from "../../components/Header/Header";
 import Rooms from "../Rooms/Rooms";
@@ -10,15 +13,39 @@ import Footer from "../../components/Footer/Footer";
 
 class Catalogue extends Component {
   state = {
+    user: null,
     auth: true,
     rooms: []
   };
+
+  /*
+  async componentWillMount() {
+    const user = await auth.onAuthStateChanged();
+    if (user) this.setState({ user });
+  }
+  */
+
+  async login() {
+    const result = await auth().signInWithPopup(provider);
+    this.setState({ user: result.user });
+  }
+
+  logout() {
+    // await auth().signOut()
+    auth().signOut();
+    this.setState({ user: null });
+  }
 
   render() {
     return (
       <Aux>
         <div className="section">
           <Header />
+          <p>
+            {this.state.user ? "Hi, ${this.state.user.displayName}!" : "Hi!"}
+          </p>
+          <button onClick={this.login.bind(this)}>Login with Facebook</button>
+          <button onClick={this.logout.bind(this)}>Logout</button>
         </div>
 
         <div className="section">
