@@ -45,6 +45,93 @@ class FullRoom extends Component {
     }
 
     if (this.state.room) {
+      let roomDetails = (
+        <div className="column is-half">
+          <h2>Room details</h2>
+          <table>
+            <tbody>
+              {this.state.room.type ? (
+                <tr>
+                  <td>Room Type</td>
+                  <td>{this.state.room.type}</td>
+                </tr>
+              ) : null}
+              {this.state.room.bathrooms ? (
+                <tr>
+                  <td>Bathroom</td>
+                  <td>{this.state.room.bathrooms}</td>
+                </tr>
+              ) : null}
+              {this.state.room.furnishings ? (
+                <tr>
+                  <td>Furnishing</td>
+                  <td>{this.state.room.furnishings}</td>
+                </tr>
+              ) : null}
+              {this.state.room.min ? (
+                <tr>
+                  <td>Min length of stay</td>
+                  <td>{this.state.room.min}</td>
+                </tr>
+              ) : null}
+              {this.state.room.max ? (
+                <tr>
+                  <td>Max length of stay</td>
+                  <td>{this.state.room.max}</td>
+                </tr>
+              ) : null}
+              {this.state.room.gender ? (
+                <tr>
+                  <td>Gender</td>
+                  <td>{this.state.room.gender}</td>
+                </tr>
+              ) : null}
+            </tbody>
+          </table>
+        </div>
+      );
+
+      let roomCharges = (
+        <div className="column is-half">
+          <h2>Charges for the room</h2>
+          <table>
+            <tbody>
+              {this.state.room.rent ? (
+                <tr>
+                  <td>Weekly rent</td>
+                  <td> ${this.state.room.rent}</td>
+                </tr>
+              ) : null}
+              {this.state.room.rent ? (
+                <tr>
+                  <td>Bond</td>
+                  <td>{this.state.room.bond}</td>
+                </tr>
+              ) : null}
+
+              {this.state.room.bills ? (
+                <tr>
+                  <td>Bills</td>
+                  <td>{this.state.room.bills}</td>
+                </tr>
+              ) : null}
+              {this.state.room.internet ? (
+                <tr>
+                  <td>Internet</td>
+                  <td>{this.state.room.internet}</td>
+                </tr>
+              ) : null}
+              {this.state.room.parking ? (
+                <tr>
+                  <td>Parking</td>
+                  <td>{this.state.room.parking}</td>
+                </tr>
+              ) : null}
+            </tbody>
+          </table>
+        </div>
+      );
+
       fullRoom = (
         <div className="fullRoom">
           <div className="columns">
@@ -65,76 +152,20 @@ class FullRoom extends Component {
           </div>
 
           <div className="columns">
-            <div className="column is-half">
-              <h2>Room details</h2>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Room Type</td>
-                    <td>{this.state.room.type}</td>
-                  </tr>
-                  <tr>
-                    <td>Bathroom</td>
-                    <td>{this.state.room.bathrooms}</td>
-                  </tr>
-                  <tr>
-                    <td>Furnishing</td>
-                    <td>{this.state.room.furnishings}</td>
-                  </tr>
-                  <tr>
-                    <td>Available</td>
-                    <td>#</td>
-                  </tr>
-                  <tr>
-                    <td>Length of Stay</td>
-                    <td>
-                      {this.state.room.min} {this.state.room.max}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Gender</td>
-                    <td>{this.state.room.gender}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="column is-half">
-              <h2>Charges for the room</h2>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Weekly rent</td>
-                    <td> $ {this.state.room.rent}</td>
-                  </tr>
-                  <tr>
-                    <td>Bond</td>
-                    <td>{this.state.room.bond}</td>
-                  </tr>
-                  <tr>
-                    <td>Bills</td>
-                    <td>{this.state.room.bills}</td>
-                  </tr>
-                  <tr>
-                    <td>Internet</td>
-                    <td>{this.state.room.internet}</td>
-                  </tr>
-                  <tr>
-                    <td>Parking</td>
-                    <td>{this.state.room.parking}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            {roomDetails}
+            {roomCharges}
           </div>
 
-          {/*this.state.room.students*/}
-          <p>{this.state.room.description}</p>
-          <p>{this.state.room.flatmates}</p>
-          <p />
-          {/*this.room.available ? (
-          <p>Available from {this.state.room.available}</p>
-        ) : null*/}
+          {this.state.room.description ? (
+            <p>{this.state.room.description}</p>
+          ) : null}
+
+          {this.state.room.flatmates ? (
+            <Aux>
+              <h2>Flatbuddies</h2>
+              <p>{this.state.room.flatmates}</p>
+            </Aux>
+          ) : null}
         </div>
       );
     }
