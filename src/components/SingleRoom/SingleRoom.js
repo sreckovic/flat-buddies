@@ -2,6 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import Preview from "../Preview/Preview";
 import "./SingleRoom.css";
 import temp_img from "../../assets/images/test_local.png";
 
@@ -57,26 +58,11 @@ const singleRoom = props => {
       {type}
       {desc}
 
-      <ul>
-        {props.room.bedrooms ? (
-          <li>
-            <i className="fa fa-bed" aria-hidden="true" />
-            {props.room.bedrooms}
-          </li>
-        ) : null}
-        {props.room.bathrooms ? (
-          <li>
-            <i className="fa fa-bath" aria-hidden="true" />
-            {props.room.bathrooms}
-          </li>
-        ) : null}
-        {props.room.persons ? (
-          <li>
-            <i className="fa fa-users" aria-hidden="true" />
-            {props.room.persons}
-          </li>
-        ) : null}
-      </ul>
+      <Preview
+        bedrooms={props.room.bedrooms}
+        bathrooms={props.room.bathrooms}
+        persons={props.room.persons}
+      />
 
       <p>
         <Link to={"/room/" + props.room.id}>Message</Link>

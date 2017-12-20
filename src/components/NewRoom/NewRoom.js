@@ -5,7 +5,6 @@ import axios from "../../axios";
 import Select from "../../UI/Select/Select";
 import Input from "../../UI/Input/Input";
 import TextArea from "../../UI/Textarea/Textarea";
-import Tags from "../../UI/Tags/Tags";
 import FormErrors from "../FormErrors/FormErrors";
 
 import fields from "./fields";
@@ -159,6 +158,7 @@ class NewRoom extends Component {
                 name="address"
                 validation={this.errorClass(this.state.formErrors.address)}
                 placeholder="Property address"
+                icon="fa-map-marker"
                 handleChange={this.handleChange}
                 value={this.address}
               />
@@ -221,6 +221,7 @@ class NewRoom extends Component {
               <Input
                 name="rent"
                 placeholder="Weekly rent"
+                icon="fa-usd"
                 handleChange={this.handleChange}
                 value={this.rent}
               />
@@ -289,8 +290,6 @@ class NewRoom extends Component {
 
           <div className="columns">
             <div className="column">
-              <Tags />
-
               <label className="checkbox">
                 <input
                   type="checkbox"
