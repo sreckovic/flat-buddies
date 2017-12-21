@@ -4,6 +4,44 @@ import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 
 const header = props => {
+  let logUser, addListing;
+
+  if (props.user) {
+    logUser = (
+      <li>
+        <a onClick={props.logout}>
+          <i className="fa fa-sign-out" aria-hidden="true" /> Logout
+        </a>
+      </li>
+    );
+  } else {
+    logUser = (
+      <li>
+        <a onClick={props.login} title="Login with Facebook">
+          <i className="fa fa-facebook-square" aria-hidden="true" /> Login
+        </a>
+      </li>
+    );
+  }
+
+  if (props.user) {
+    addListing = (
+      <li>
+        <NavLink
+          to={{
+            pathname: "/add-listing"
+            //hash: "#submit",
+            //search: "?quick-submit=true"
+          }}
+        >
+          List my place
+        </NavLink>
+      </li>
+    );
+  } else {
+    addListing = null;
+  }
+
   return (
     <header className="header">
       <div className="container">
@@ -26,26 +64,8 @@ const header = props => {
                   Rooms
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to={{
-                    pathname: "/add-listing"
-                    //hash: "#submit",
-                    //search: "?quick-submit=true"
-                  }}
-                >
-                  List my place
-                </NavLink>
-              </li>
-              {props.user ? (
-                <li>
-                  <a onClick={props.logout}>Logout</a>
-                </li>
-              ) : (
-                <li>
-                  <a onClick={props.login}>Login with Google</a>
-                </li>
-              )}
+              {addListing}
+              {logUser}
             </ul>
           </div>
         </nav>

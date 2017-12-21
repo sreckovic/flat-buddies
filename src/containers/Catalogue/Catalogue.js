@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
 // import provider and auth that we exported from src/firebase.js
-import { auth, providerGoogle, providerFacebook } from "../../firebase";
+import { auth, providerFacebook } from "../../firebase";
 
 import Aux from "../../hoc/Aux/Aux";
 import Header from "../../components/Header/Header";
@@ -19,26 +19,6 @@ class Catalogue extends Component {
     rooms: []
   };
 
-  /*
-  async componentWillMount() {
-    const username = await auth.onAuthStateChanged();
-    if (username) this.setState({ username });
-  }
-  */
-
-  /*
-  async login() {
-    const result = await auth().signInWithPopup(providerGoogle);
-    this.setState({ username: result.username });
-  }
-
-  logout() {
-    // await auth().signOut()
-    auth().signOut();
-    this.setState({ username: null });
-  }
-  */
-
   componentDidMount() {
     auth().onAuthStateChanged(user => {
       if (user) {
@@ -49,7 +29,7 @@ class Catalogue extends Component {
 
   loginHandler = () => {
     auth()
-      .signInWithPopup(providerGoogle)
+      .signInWithPopup(providerFacebook)
       .then(result => {
         const user = result.user;
         this.setState({
