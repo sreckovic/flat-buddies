@@ -35,6 +35,7 @@ class Rooms extends Component {
             bathrooms: fetchedRooms[key].bathrooms,
             persons: fetchedRooms[key].persons,
             roomType: fetchedRooms[key].roomType,
+            rent: fetchedRooms[key].rent,
             furnishings: fetchedRooms[key].furnishings,
             description: fetchedRooms[key].description
           });
@@ -50,8 +51,7 @@ class Rooms extends Component {
   }
 
   render() {
-    let rooms,
-      addListing = null;
+    let rooms = null;
 
     if (this.state.loading) {
       rooms = (

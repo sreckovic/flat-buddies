@@ -11,11 +11,18 @@ import FullRoom from "../../components/FullRoom/FullRoom";
 import NewRoom from "../../components/NewRoom/NewRoom";
 import Footer from "../../components/Footer/Footer";
 
+import "./Catalogue.css";
+
 class Catalogue extends Component {
   state = {
     username: "",
     user: null,
-    auth: false
+    auth: false,
+    token: null,
+    errorCode: null,
+    errorMessage: null,
+    errorEmail: null,
+    credential: null
   };
 
   componentDidMount() {
@@ -36,7 +43,8 @@ class Catalogue extends Component {
         // The signed-in user info.
         const user = result.user;
         this.setState({
-          user: user
+          user: user,
+          token: token
         });
       })
       .catch(error => {
@@ -49,6 +57,13 @@ class Catalogue extends Component {
 
         // The firebase.auth.AuthCredential type that was used.
         const credential = error.credential;
+
+        this.setState({
+          errorCode: errorCode,
+          errorMessage: errorMessage,
+          errorEmail: email,
+          credential: credential
+        });
       });
   };
 
@@ -88,24 +103,28 @@ class Catalogue extends Component {
     };
     */
 
-    let addListing;
+    let addListing = null;
 
     if (this.state.user) {
       addListing = (
-        <li>
-          <NavLink
-            to={{
-              pathname: "/add-listing"
-              //hash: "#submit",
-              //search: "?quick-submit=true"
-            }}
-          >
-            List my place
-          </NavLink>
-        </li>
+        <ul className="addListing">
+          <li>
+            <NavLink
+              className="button is-primary is-rounded"
+              to={{
+                pathname: "/add-listing"
+                //hash: "#submit",
+                //search: "?quick-submit=true"
+              }}
+            >
+              <span className="icon">
+                <i className="fa fa-plus" aria-hidden="true" />
+              </span>
+              <span>List my place</span>
+            </NavLink>
+          </li>
+        </ul>
       );
-    } else {
-      addListing = null;
     }
 
     return (
@@ -118,7 +137,7 @@ class Catalogue extends Component {
 
         <div className="section">
           <div className="container">
-            <ul>{addListing}</ul>
+            {addListing}
 
             <Switch>
               {this.state.user ? (

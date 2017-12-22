@@ -149,7 +149,7 @@ class NewRoom extends Component {
 
     return (
       <div className="addNewRoom">
-        <h2>Add new listing</h2>
+        <h1>Add my new listing</h1>
         <p>Room(s) in an existing share house</p>
 
         <form onSubmit={this.postHandler}>
@@ -333,7 +333,10 @@ class NewRoom extends Component {
 
           <div className="field">
             {formErrors}
-            <button className="button is-link" disabled={!this.state.formValid}>
+            <button
+              className="button is-primary"
+              disabled={!this.state.formValid}
+            >
               Create your listing
             </button>
           </div>

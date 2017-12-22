@@ -64,6 +64,8 @@ const singleRoom = props => {
         persons={props.room.persons}
       />
 
+      {props.room.rent ? <p>$ {props.room.rent}</p> : null}
+
       <p>
         <Link to={"/room/" + props.room.id}>Message</Link>
       </p>

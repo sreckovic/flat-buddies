@@ -1,6 +1,13 @@
 .addNewRoom {
-  h2 {
+  h1 { // same as Rooms.scss h1
     font-size: 1.4em;
+    margin-bottom: 2.6rem;
+    line-height: 36px; // matched height in px of '+ List my place button'
+  }
+
+  .button.is-primary { // same as Catalogue.scss
+    background-color: #5fbdc7;
+    font-weight: 600;
   }
 
   div.select {
