@@ -1,4 +1,7 @@
 .fullRoom {
+  background-color: #fff;
+  padding: 1rem;
+
   .subtitle, table td {
     &::first-letter {
       text-transform: uppercase;

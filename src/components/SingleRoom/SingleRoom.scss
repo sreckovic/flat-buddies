@@ -1,9 +1,11 @@
 .singleRoom {
-  margin-bottom: .2rem;
-  padding: .2rem;
+  background-color: #fff;
+  padding: 1.2rem 2rem;
+  min-height: 260px;
 
   h2 {
-    margin-bottom: 0;
+    margin-bottom: .4rem;
+    font-size: 1.2em;
   }
 
   h2, .desc, .abstract {
@@ -13,10 +15,12 @@
   }
 
   ul, p {
-    margin-bottom: .3rem;
+    margin-bottom: .4rem;
   }
 
   p {
+    font-size: .9em;
+
     &::first-letter {
       text-transform: uppercase;
     }

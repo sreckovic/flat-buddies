@@ -2,9 +2,11 @@ import React, { Component } from "react";
 
 import axios from "../../axios";
 
-import Aux from "../../hoc/Aux/Aux";
+// import Aux from "../../hoc/Aux/Aux";
 import SingleRoom from "../../components/SingleRoom/SingleRoom";
 import Spinner from "../../UI/Spinner/Spinner";
+
+import "./Rooms.css";
 
 class Rooms extends Component {
   state = {
@@ -48,7 +50,8 @@ class Rooms extends Component {
   }
 
   render() {
-    let rooms = null;
+    let rooms,
+      addListing = null;
 
     if (this.state.loading) {
       rooms = (
@@ -77,10 +80,11 @@ class Rooms extends Component {
     }
 
     return (
-      <Aux>
-        <h1>Rooms for Rent</h1>
+      <div className="roomsListing">
+        <h1>Rooms Listing</h1>
+
         <div className="columns is-multiline">{rooms}</div>
-      </Aux>
+      </div>
     );
   }
 }

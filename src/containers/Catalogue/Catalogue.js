@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
 
 // import provider and auth that we exported from src/firebase.js
 import { auth, providerFacebook } from "../../firebase";
@@ -15,12 +15,11 @@ class Catalogue extends Component {
   state = {
     username: "",
     user: null,
-    auth: false,
-    rooms: []
+    auth: false
   };
 
   componentDidMount() {
-    auth().onAuthStateChanged(user => {
+    auth.onAuthStateChanged(user => {
       if (user) {
         this.setState({ user });
       }
@@ -28,39 +27,99 @@ class Catalogue extends Component {
   }
 
   loginHandler = () => {
-    auth()
+    auth
       .signInWithPopup(providerFacebook)
       .then(result => {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        const token = result.credential.accessToken;
+
+        // The signed-in user info.
         const user = result.user;
         this.setState({
           user: user
         });
+      })
+      .catch(error => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        // The email of the user's account used.
+        const email = error.email;
+
+        // The firebase.auth.AuthCredential type that was used.
+        const credential = error.credential;
       });
   };
 
   logoutHandler = () => {
-    auth()
+    auth
       .signOut()
       .then(() => {
         this.setState({
           user: null
         });
+      })
+      .catch(error => {
+        // An error happened.
       });
   };
 
   render() {
+    /*
+    const RoomsWithProps = props => {
+      return <Rooms user={this.state.user} />;
+    };
+
+    const renderMergedProps = (component, ...rest) => {
+      const finalProps = Object.assign({}, ...rest);
+      return React.createElement(component, finalProps);
+    };
+
+    const PropsRoute = ({ component, ...rest }) => {
+      return (
+        <Route
+          {...rest}
+          render={routeProps => {
+            return renderMergedProps(component, routeProps, rest);
+          }}
+        />
+      );
+    };
+    */
+
+    let addListing;
+
+    if (this.state.user) {
+      addListing = (
+        <li>
+          <NavLink
+            to={{
+              pathname: "/add-listing"
+              //hash: "#submit",
+              //search: "?quick-submit=true"
+            }}
+          >
+            List my place
+          </NavLink>
+        </li>
+      );
+    } else {
+      addListing = null;
+    }
+
     return (
       <Aux>
-        <div className="section">
-          <Header
-            user={this.state.user}
-            login={this.loginHandler}
-            logout={this.logoutHandler}
-          />
-        </div>
+        <Header
+          user={this.state.user}
+          login={this.loginHandler}
+          logout={this.logoutHandler}
+        />
 
         <div className="section">
           <div className="container">
+            <ul>{addListing}</ul>
+
             <Switch>
               {this.state.user ? (
                 <Route path="/add-listing" component={NewRoom} />
@@ -75,9 +134,7 @@ class Catalogue extends Component {
           </div>
         </div>
 
-        <div className="section">
-          <Footer />
-        </div>
+        <Footer />
       </Aux>
     );
   }

@@ -1,26 +1,37 @@
 header, .header {
+  background-color: #353a4e;
+  color: #fff;
+  padding: 2rem 0;
 
   h2 {
-    font-size: 2.4em;
-    font-weight: 700;
-    margin-bottom: .5rem;
+    font-size: 1.4em;
+  }
 
-    a {
-      color: #1e1e1e;
-    }
+  h2, p.subtitle {
+    margin-bottom: 0rem;
+  }
+
+  h2 a, p.subtitle, .navbar a {
+    color: #fff;
   }
 
   p.subtitle {
-    font-size: 1.2em;
-    font-weight: normal;
-    margin-bottom: 2rem;
+    display: none;
   }
 
-  ul {
-    padding: .5rem;
+  .branding {
+    float: left;
+  }
 
-    li {
-      margin-bottom: .5rem;
+  .navbar {
+    float: right;
+    background-color: transparent;
+
+    ul {
+      li {
+        float: left;
+        margin: .2rem;
+      }
     }
   } 
 }

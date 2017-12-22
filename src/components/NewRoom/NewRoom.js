@@ -39,6 +39,7 @@ class NewRoom extends Component {
     submitted: false,
 
     formErrors: { address: "", type: "" },
+    fieldValid: { address: false, type: false },
     addressValid: false,
     typeValid: false,
     formValid: false
@@ -95,6 +96,8 @@ class NewRoom extends Component {
   };
 
   validateField(name, value) {
+    console.log(name, value);
+
     let fieldValidationErrors = this.state.formErrors;
     let addressValid = this.state.addressValid;
     let typeValid = this.state.typeValid;
@@ -286,6 +289,7 @@ class NewRoom extends Component {
             </div>
           </div>
 
+          {/*}
           <h3>Accepting</h3>
 
           <div className="columns">
@@ -301,6 +305,7 @@ class NewRoom extends Component {
               </label>
             </div>
           </div>
+          */}
 
           <div className="field">
             <label flatmates="description" className="label">

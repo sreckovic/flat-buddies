@@ -4,20 +4,25 @@
 
 /* General styles */
 a {
+  color: #5fbdc7;
   text-decoration: none;
+}
+
+body, html {
+  background-color: #f3f4f6;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 1em;
+  font-size: .9em;
   line-height: 1.4;
-  font-weight: 600;
-  color: #1e1e1e;
+  font-weight: 400;
+  color: #1c2326;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Roboto Slab', serif;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 h1, h2, h3 {
