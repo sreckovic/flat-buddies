@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 // import provider and auth that we exported from src/firebase.js
 import { auth, providerFacebook } from "../../firebase";
@@ -10,6 +10,7 @@ import Rooms from "../Rooms/Rooms";
 import FullRoom from "../../components/FullRoom/FullRoom";
 import NewRoom from "../../components/NewRoom/NewRoom";
 import Footer from "../../components/Footer/Footer";
+import AddListingButton from "../../components/addListingButton/addListingButton";
 
 import "./Catalogue.css";
 
@@ -103,30 +104,6 @@ class Catalogue extends Component {
     };
     */
 
-    let addListing = null;
-
-    if (this.state.user) {
-      addListing = (
-        <ul className="addListing">
-          <li>
-            <NavLink
-              className="button is-primary is-rounded"
-              to={{
-                pathname: "/add-listing"
-                //hash: "#submit",
-                //search: "?quick-submit=true"
-              }}
-            >
-              <span className="icon">
-                <i className="fa fa-plus" aria-hidden="true" />
-              </span>
-              <span>List my place</span>
-            </NavLink>
-          </li>
-        </ul>
-      );
-    }
-
     return (
       <Aux>
         <Header
@@ -137,7 +114,12 @@ class Catalogue extends Component {
 
         <div className="section">
           <div className="container">
-            {addListing}
+            {this.state.user ? (
+              <Aux>
+                <Route path="/rooms" exact component={AddListingButton} />
+                <Route path="/" exact component={AddListingButton} />
+              </Aux>
+            ) : null}
 
             <Switch>
               {this.state.user ? (
