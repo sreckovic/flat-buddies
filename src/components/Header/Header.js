@@ -49,6 +49,19 @@ const header = props => {
                   Rooms
                 </NavLink>
               </li>
+              {props.user ? (
+                <li>
+                  <NavLink
+                    to={{
+                      pathname: "/add-listing"
+                      //hash: "#submit",
+                      //search: "?quick-submit=true"
+                    }}
+                  >
+                    List my place
+                  </NavLink>
+                </li>
+              ) : null}
             </ul>
           </div>
 

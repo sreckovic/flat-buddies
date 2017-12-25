@@ -31,11 +31,15 @@ header, .header {
     ul {
       li {
         float: left;
-        //margin: .4rem;
+        margin-right: .8rem;
         line-height: 47px; // match heigh of userProfile in px
 
         a {
           color: #fff;
+
+          &.active {
+            font-weight: 600;
+          }
         }
       }
     }

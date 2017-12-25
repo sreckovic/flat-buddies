@@ -10,7 +10,7 @@ import Rooms from "../Rooms/Rooms";
 import FullRoom from "../../components/FullRoom/FullRoom";
 import NewRoom from "../../components/NewRoom/NewRoom";
 import Footer from "../../components/Footer/Footer";
-import AddListingButton from "../../components/addListingButton/addListingButton";
+import AddListingButton from "../../components/AddListingButton/AddListingButton";
 
 import "./Catalogue.css";
 
