@@ -47,8 +47,12 @@ class FullRoom extends Component {
     if (this.state.room) {
       let roomDetails = (
         <div className="column is-half">
-          <h2>Room details</h2>
           <table>
+            <thead>
+              <tr>
+                <th>Room details</th>
+              </tr>
+            </thead>
             <tbody>
               {this.state.room.type ? (
                 <tr>
@@ -93,8 +97,12 @@ class FullRoom extends Component {
 
       let roomCharges = (
         <div className="column is-half">
-          <h2>Charges for the room</h2>
           <table>
+            <thead>
+              <tr>
+                <th>Charges for the room</th>
+              </tr>
+            </thead>
             <tbody>
               {this.state.room.rent ? (
                 <tr>
@@ -134,38 +142,48 @@ class FullRoom extends Component {
 
       fullRoom = (
         <div className="fullRoom">
-          <div className="columns">
-            <div className="column">
-              <h1 className="title">{this.state.room.address}</h1>
-              <p className="subtitle">
-                {this.state.room.roomType === "shared" ? "Shared room" : null}
-                {this.state.room.bathroomType === "shared"
-                  ? " with shared bathroom"
-                  : null}
-              </p>
-              <Preview
-                bedrooms={this.state.room.bedrooms}
-                bathrooms={this.state.room.bathrooms}
-                persons={this.state.room.persons}
-              />
+          <div className="titles">
+            <h1 className="title">{this.state.room.address}</h1>
+            <p className="subtitle">
+              {this.state.room.roomType === "shared" ? "Shared room" : null}
+              {this.state.room.bathroomType === "shared"
+                ? " with shared bathroom"
+                : null}
+            </p>
+          </div>
+
+          <div className="details">
+            <div className="columns">
+              <div className="column">
+                <Preview
+                  bedrooms={this.state.room.bedrooms}
+                  bathrooms={this.state.room.bathrooms}
+                  persons={this.state.room.persons}
+                />
+              </div>
+            </div>
+
+            <div className="columns">
+              {roomDetails}
+              {roomCharges}
+            </div>
+
+            <div className="columns">
+              {this.state.room.description ? (
+                <div className="column">
+                  <h2>Description</h2>
+                  <p>{this.state.room.description}</p>
+                </div>
+              ) : null}
+
+              {this.state.room.flatmates ? (
+                <div className="column">
+                  <h2>Flatbuddies</h2>
+                  <p>{this.state.room.flatmates}</p>
+                </div>
+              ) : null}
             </div>
           </div>
-
-          <div className="columns">
-            {roomDetails}
-            {roomCharges}
-          </div>
-
-          {this.state.room.description ? (
-            <p>{this.state.room.description}</p>
-          ) : null}
-
-          {this.state.room.flatmates ? (
-            <Aux>
-              <h2>Flatbuddies</h2>
-              <p>{this.state.room.flatmates}</p>
-            </Aux>
-          ) : null}
         </div>
       );
     }

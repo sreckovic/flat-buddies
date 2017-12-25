@@ -1,10 +1,11 @@
 header, .header {
   background-color: #353a4e;
   color: #fff;
-  padding: 2rem 0;
+  //padding: 2rem 0;
 
   h2 {
     font-size: 1.6em;
+    line-height: 47px; // match heigh of userProfile in px
   }
 
   h2, p.subtitle {
@@ -21,17 +22,40 @@ header, .header {
 
   .branding {
     float: left;
+    margin-right: 2rem;
   }
 
-  .navbar {
-    float: right;
-    background-color: transparent;
+  .mainMenu {
+    float: left;
 
     ul {
       li {
         float: left;
-        margin: .2rem;
+        //margin: .4rem;
+        line-height: 47px; // match heigh of userProfile in px
+
+        a {
+          color: #fff;
+        }
       }
     }
-  } 
+  }
+
+  .userProfile {
+    float: right;
+    ul {
+      li {
+        margin-bottom: .4rem;
+        text-align: right;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
 }

@@ -28,7 +28,7 @@ const header = props => {
 
   return (
     <header className="header">
-      <div className="">
+      <div className="section">
         <div className="container is-clearfix">
           <div className="branding">
             <h2>
@@ -37,24 +37,28 @@ const header = props => {
             <p className="subtitle">Share accommodation website.</p>
           </div>
 
-          <nav className="navbar" aria-label="main navigation">
-            <div className="navbar-menu is-active">
-              <ul>
-                {props.user ? <li>Hi {props.user.displayName}!</li> : null}
-                <li>
-                  <NavLink
-                    to="/rooms/"
-                    exact
-                    // activeClassName="my-active"
-                    // activeStyle={{ color: "#fa923f", textDecoration: "underline" }}
-                  >
-                    Rooms
-                  </NavLink>
-                </li>
-                {logUser}
-              </ul>
-            </div>
-          </nav>
+          <div className="mainMenu">
+            <ul>
+              <li>
+                <NavLink
+                  to="/rooms/"
+                  exact
+                  // activeClassName="my-active"
+                  // activeStyle={{ color: "#fa923f", textDecoration: "underline" }}
+                >
+                  Rooms
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+
+          <div className="userProfile">
+            <ul>
+              {props.user ? <li>Hi {props.user.displayName}!</li> : null}
+
+              {logUser}
+            </ul>
+          </div>
         </div>
       </div>
     </header>
